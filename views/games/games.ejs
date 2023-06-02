@@ -1,0 +1,41 @@
+<h2>Agrega tu VideoJuego Favorito</h2>
+<form action="/games/add" method="POST">
+    <div class="input-field col s12 l6">
+        <input type="text" id="first_name" class="validate" name="name" required>
+        <label for="first_name">Nombre del Juego</label>
+    </div>
+    <div class="input-field col s12">
+        <textarea id="textarea1" class="materialize-textarea validate" name="description" required></textarea>
+        <label for="textarea1">Descripción del Juego</label>
+    </div>
+    <div class="input-field col s12">
+        <button type="submit" class="btn btn-outline-success" name="submit">Add Game</button>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col" data-field="id">Nombre</th>
+            <th scope="col" data-field="des">Descripción</th>
+            <th scope="col" data-field="act">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <% games.forEach(function(game){ %>
+
+            <tr>
+                <th scope="row"><%= game.id %></th>
+                <td><%= game.name %></td>
+                <td><%= game.description %></td>
+                <td>
+                    <a class="btn btn-outline-primary" href="/games/edit/<%= game.id %>" role="button">Edit</a>
+                    <a class="btn btn-outline-danger" href="/games/delete/<%= game.id %>" role="button">Delete</a>
+                </td>
+            </tr>
+
+        <% }); %>
+
+    </tbody>
+</table>

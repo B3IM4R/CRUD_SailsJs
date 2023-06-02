@@ -1,0 +1,19 @@
+<h2>Editar VideoJuego</h2>
+<form action="/games/update/<%= game.id %>" method="POST">
+        <div class="input-field col s12 l6">
+            <input type="text" id="firs_name" class="validate" name="name" 
+            value="<%= game.name %>" required>
+            <label for="firs_name">Nombre del Juego</label>
+        </div>
+        <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea validate" name="description" required
+            ><%= game.description %></textarea>
+            <label for="textarea1">Descripción del Juego</label>
+        </div>
+        <div class="col s12">
+            <button class="btn btn-outline-warning" type="submit" name="submit">
+                Actualizar Juego
+            </button>
+        </div>
+</form>
+
